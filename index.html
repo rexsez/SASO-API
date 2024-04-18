@@ -21,7 +21,7 @@
 
             // Create the JSON payload
             var payload = {
-                "SadadNo": "638490599002789055",
+                "SadadNo": sadadNoValue,
                 "SadadStatusId": 0,
                 "SadadStatusCode": "366",
                 "SadadStatusDescription": "string",
@@ -35,7 +35,8 @@
                     "AuthorizationKey": "Ri4lA808ol0RratploPKwRq9f3M9vxrCB8SMfZQvUEhoRaGEPaKQ52bwjIDpdoS79FBs8d19",
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify(payload)
+                body: JSON.stringify(payload),
+                mode: "cors" // Include 'Origin' header
             })
             .then(response => {
                 if (response.ok) {
