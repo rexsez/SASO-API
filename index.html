@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello, World!</title>
+    <title>HERC Payment</title>
 </head>
 <body>
-    <h1>Hello, World!</h1>
+    <h1>HERC Sadad Payment</h1>
     
     <form id="myForm">
         <label for="sadadNoInput">Sadad No:</label>
@@ -38,11 +38,12 @@
                 body: JSON.stringify(payload),
                 mode: "cors" // Include 'Origin' header
             })
-            .then(response => {
-                if (response.ok) {
-                    alert("API request successful!");
+            .then(response => response.json())
+            .then(data => {
+                if (data.successful) {
+                    alert("Successful!");
                 } else {
-                    alert("API request failed with status: " + response.status);
+                    alert("Failed!");
                 }
             })
             .catch(error => {
