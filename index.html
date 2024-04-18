@@ -7,5 +7,44 @@
 </head>
 <body>
     <h1>Hello, World!</h1>
+    
+    <form id="myForm">
+        <label for="sadadNoInput">Sadad No:</label>
+        <input type="text" id="sadadNoInput" name="sadadNoInput">
+        <button type="submit" id="submitButton">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent default form submission
+            
+            // Get the input value
+            var sadadNoValue = document.getElementById("sadadNoInput").value;
+            
+            // Make the API request
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "http://172.214.75.26:8080/update-sadad-bill-status", true);
+            xhr.setRequestHeader("AuthorizationKey", "Ri4lA808ol0RratploPKwRq9f3M9vxrCB8SMfZQvUEhoRaGEPaKQ52bwjIDpdoS79FBs8d19");
+            xhr.setRequestHeader("Content-Type", "application/json");
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === XMLHttpRequest.DONE) {
+                    if (xhr.status === 200) {
+                        // Handle successful API response here
+                        alert("API request successful!");
+                    } else {
+                        // Handle API error here
+                        alert("API request failed with status: " + xhr.status);
+                    }
+                }
+            };
+            xhr.send(JSON.stringify({
+                "SadadNo": sadadNoValue,
+                "SadadStatusId": 0,
+                "SadadStatusCode": "366",
+                "SadadStatusDescription": "string",
+                "SadadReturnValue": "string"
+            }));
+        });
+    </script>
 </body>
 </html>
