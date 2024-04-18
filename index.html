@@ -23,7 +23,7 @@
             
             // Make the API request
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "http://172.214.75.26:8080/update-sadad-bill-status", true);
+            xhr.open("POST", "https://cors-anywhere.herokuapp.com/http://172.214.75.26:8080/update-sadad-bill-status", true);
             xhr.setRequestHeader("AuthorizationKey", "Ri4lA808ol0RratploPKwRq9f3M9vxrCB8SMfZQvUEhoRaGEPaKQ52bwjIDpdoS79FBs8d19");
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.onreadystatechange = function () {
